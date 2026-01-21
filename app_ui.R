@@ -40,7 +40,7 @@ ui <- fluidPage(
         tabPanel("Vinyl",
                  htmlOutput("text6"),
                  selectInput("vinyl_rating", "Select which albums to display:",
-                             c("Only 10" = 10, "9 and higher" = 9, "8 and higher" = 8, "7 and higher" = 7)),
+                             c("Only 10 ratings" = 10, "9 and higher" = 9, "8 and higher" = 8, "7 and higher" = 7)),
                  actionButton("action_button3", label = "Submit"),
                  tableOutput("missing_vinyl_table")),
         tabPanel("Band Comparison",
