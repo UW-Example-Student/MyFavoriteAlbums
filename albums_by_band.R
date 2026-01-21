@@ -1,10 +1,3 @@
-library(dplyr)
-library(DT)
-
-# Grab the music data.
-# See documentation for how to format the data
-album_data <- read.csv("data/album-rankings.csv")
-
 # List all of the bands in alphabetical order
 # Used to populate the pull-down menu
 all_bands <- sort(unique(album_data$Artist))
@@ -24,6 +17,7 @@ band_album_count <- function(band.var){
   band_count <-count(band_albums)
   print(paste0("Number of Albums Ranked: ", band_count))
 }
+
 
 
 
