@@ -1,7 +1,3 @@
-# Grab the music data.
-# See documentation for how to format the data
-album_data <- read.csv("data/album-rankings.csv")
-
 # List all of the years
 # Used to populate the pull-down menu
 all_years <- sort(unique(album_data$Year))
