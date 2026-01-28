@@ -5,7 +5,7 @@ account: cholstro
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 14587630
-bundleId: 11504572
+bundleId: 11504605
 url: https://cholstro.shinyapps.io/shiny-music/
 version: 1
 asMultiple: FALSE
