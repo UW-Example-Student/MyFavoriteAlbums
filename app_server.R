@@ -1,24 +1,38 @@
-library(shiny)
-library(dplyr)
-
 server <- function(input, output) {
 
   output$title <- renderUI({
     HTML("<h1>My Favorite Albums</h1><br>")
   })
 
-# First tab
+# Home tab - Welcome
+  output$texthome1 <- renderUI({
+    HTML("<br><h2>Welcome!</h2><p>My Favorite Albums allows you to analayze lists of your favorite albums from multiple years.</p>")
+  })
+
+  output$total_albums <- renderText({
+      return(total_album_count())
+    })
+
+  output$total_bands <- renderText({
+    return(total_band_count())
+  })
+
+  output$popular_artist <- renderText({
+    return(most_pop_artist())
+  })
+
+# First tab - Number One Albums
   output$text3 <- renderUI({
-    HTML("<br><br>")
+    HTML("<h2>Number One Albums</h2><br>")
   })
 
   output$number_one_table <- renderTable({
     return(number_one_album(input$rng[1], input$rng[2]))
   })
 
-# Second tab
+# Second tab - Band and Artist Summary
   output$text <- renderUI({
-    HTML("<br><br>")
+    HTML("<h2>About an Artist's Albums</h2><br>")
   })
 
   output$text2 <- renderUI({
@@ -40,9 +54,9 @@ server <- function(input, output) {
 
   })
 
-  # Third tab
+  # Third tab - Top Albums By Year
   output$text4 <- renderUI({
-    HTML("<br><br>")
+    HTML("<h2>Top Albums by Year</h2><br>")
   })
 
   output$text5 <- renderUI({
@@ -57,9 +71,9 @@ server <- function(input, output) {
 
   })
 
-  # Fourth tab
+  # Fourth tab - Vinyl
   output$text6 <- renderUI({
-    HTML("<h2>Top-rated vinyl that I don't own</h2><br>")
+    HTML("<h2>Top-rated albums not owned on vinyl</h2><br>")
   })
 
   observeEvent(input$action_button3,{
@@ -68,12 +82,12 @@ server <- function(input, output) {
   })
   })
 
-  # Fifth tab
+  # Fifth tab - Comparison Graph
   output$text8 <- renderUI({
-    HTML("<br><br>")
+    HTML("<h2>Compare Two Artists on the Graph</h2><br>")
   })
 
-  output$text8 <- renderUI({
+  output$text9 <- renderUI({
     HTML("<br><br>")
   })
 
@@ -81,4 +95,14 @@ server <- function(input, output) {
     return(band_album_comparison_chart(input$band_name_1, input$band_name_2))
   })
 
+
+
+  # Sixth tab - Favorite Artists
+  output$text10 <- renderUI({
+    HTML("<h2>Artists with Highly Rated Albums</h2><br>")
+  })
+
+  output$fav_artists_table <- renderTable({
+    return(favorite_bands())
+  })
 }

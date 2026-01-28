@@ -19,6 +19,11 @@ ui <- fluidPage(
     mainPanel(htmlOutput("title"),
       tabsetPanel(
         id = "tabset",
+        tabPanel("Home",
+                 htmlOutput("texthome1"),
+                 textOutput("total_albums"),
+                 textOutput("total_bands"),
+                 textOutput("popular_artist")),
         tabPanel("Number One Albums",
                  htmlOutput("text3"),
                  sliderInput("rng", "Choose the Years", value = c(1993, 1998), min = 1993, max = 2024),
@@ -48,7 +53,13 @@ ui <- fluidPage(
                  selectInput("band_name_1", "First band or artist:", all_bands),
                  selectInput("band_name_2", "Second band or artist:", all_bands),
                  htmlOutput("text9"),
-                 plotOutput("compare_bands"))
-      )
+                 plotOutput("compare_bands")),
+      tabPanel("Favorite Bands",
+               htmlOutput("text10"),
+           #    selectInput("min_albums", "Minimum number of albums:",
+            #               c(10, 9, 8, 7, 6, 5, 4, 3, 2, 1)),
+               tableOutput("fav_artists_table"))
+    )
     )
 )
+
