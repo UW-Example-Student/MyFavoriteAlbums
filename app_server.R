@@ -73,7 +73,7 @@ server <- function(input, output) {
 
   # Fourth tab - Vinyl
   output$text6 <- renderUI({
-    HTML("<h2>Top-rated albums not owned on vinyl</h2><br>")
+    HTML("<h2>Top-Rated Albums Not Owned on Vinyl</h2><br>")
   })
 
   observeEvent(input$action_button3,{
@@ -101,8 +101,9 @@ server <- function(input, output) {
   output$text10 <- renderUI({
     HTML("<h2>Artists with Highly Rated Albums</h2><br>")
   })
-
+  observeEvent(input$action_button4,{
   output$fav_artists_table <- renderTable({
-    return(favorite_bands())
+    return(favorite_bands(input$min_albums, input$live_ep_checkbox))
+  })
   })
 }

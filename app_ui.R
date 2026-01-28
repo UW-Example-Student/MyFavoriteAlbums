@@ -26,7 +26,7 @@ ui <- fluidPage(
                  textOutput("popular_artist")),
         tabPanel("Number One Albums",
                  htmlOutput("text3"),
-                 sliderInput("rng", "Choose the Years", value = c(1993, 1998), min = 1993, max = 2024),
+                 sliderInput("rng", "Choose the Years", value = c(1993, 1998), min = 1993, max = 2024, sep = ""),
                  tableOutput("number_one_table")),
         tabPanel("Bands and Artists",
                  htmlOutput("text"),
@@ -54,10 +54,12 @@ ui <- fluidPage(
                  selectInput("band_name_2", "Second band or artist:", all_bands),
                  htmlOutput("text9"),
                  plotOutput("compare_bands")),
-      tabPanel("Favorite Bands",
+      tabPanel("Favorite Artists",
                htmlOutput("text10"),
-           #    selectInput("min_albums", "Minimum number of albums:",
-            #               c(10, 9, 8, 7, 6, 5, 4, 3, 2, 1)),
+               selectInput("min_albums", "Minimum number of albums:",
+                           c("10 "= 10, "9" = 9, "8" = 8, "7" = 7, "6" = 6, "5" = 5, "4" = 4, "3" = 3, "2" = 2, "1" = 1)),
+               checkboxInput("live_ep_checkbox", "Exlude EPs and Live Albums", TRUE),
+               actionButton("action_button4", label = "Submit"),
                tableOutput("fav_artists_table"))
     )
     )
