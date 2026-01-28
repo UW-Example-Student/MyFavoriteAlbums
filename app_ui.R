@@ -1,4 +1,4 @@
-# This file builds the Shiny UI. It has five tabs.
+# This file builds the Shiny UI. It has seven tabs, including the Home tab.
 # The file partners with app_server.R for inputs and outputs.
 # The app.R file is the main file.
 library(shiny)
