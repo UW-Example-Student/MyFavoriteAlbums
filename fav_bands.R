@@ -1,4 +1,4 @@
-# Show the top 20 bands with at least x ranked albums
+# Show up to the top 15 bands with at least x ranked albums
 # Order by highest average rating
 # Allow end user to choose to include EPs and Live albums or not
 
