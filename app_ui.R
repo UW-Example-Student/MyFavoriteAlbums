@@ -46,7 +46,7 @@ ui <- fluidPage(
                  htmlOutput("text10"),
                  selectInput("min_albums", "Minimum number of albums:",
                              c("10 "= 10, "9" = 9, "8" = 8, "7" = 7, "6" = 6, "5" = 5, "4" = 4, "3" = 3, "2" = 2, "1" = 1)),
-                 checkboxInput("live_ep_checkbox", "Exlude EPs and Live Albums", TRUE),
+                 checkboxInput("live_ep_checkbox", "Exclude EPs and Live Albums", TRUE),
                  actionButton("action_button4", label = "Submit"),
                  tableOutput("fav_artists_table")),
         tabPanel("Artist Comparison",
