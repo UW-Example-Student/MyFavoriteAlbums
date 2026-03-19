@@ -5,7 +5,7 @@ server <- function(input, output) {
   })
 
 # Home tab - Welcome
-  output$texthome1 <- renderUI({
+  output$textWelcome <- renderUI({
     HTML("<br><h2>Welcome!</h2><p>My Favorite Albums allows you to analayze lists of your favorite albums from multiple years.</p>")
   })
 
@@ -22,7 +22,7 @@ server <- function(input, output) {
   })
 
 # First tab - Number One Albums
-  output$text3 <- renderUI({
+  output$textNumOne <- renderUI({
     HTML("<h2>Number One Albums</h2><br>")
   })
 
@@ -31,11 +31,11 @@ server <- function(input, output) {
   })
 
 # Second tab - Top Albums By Year
-  output$text4 <- renderUI({
+  output$textTopAlbums <- renderUI({
     HTML("<h2>Top Albums by Year</h2><br>")
   })
 
-  output$text5 <- renderUI({
+  output$textBreak <- renderUI({
     HTML("<br><br>")
   })
 
@@ -48,12 +48,8 @@ server <- function(input, output) {
   })
 
   # Third tab - Band and Artist Summary
-  output$text <- renderUI({
+  output$textAboutArtist <- renderUI({
     HTML("<h2>About an Artist's Albums</h2><br>")
-  })
-
-  output$text2 <- renderUI({
-    HTML("<br><br>")
   })
 
   observeEvent(input$action_button,{
@@ -71,7 +67,7 @@ server <- function(input, output) {
 
   })
   # Fourth tab - Favorite Artists
-  output$text10 <- renderUI({
+  output$textFavArtists <- renderUI({
     HTML("<h2>Artists with Highly Rated Albums</h2><br>")
   })
   observeEvent(input$action_button4,{
@@ -80,12 +76,8 @@ server <- function(input, output) {
     })
 })
   # Fifth tab - Comparison Graph
-  output$text8 <- renderUI({
+  output$textCompare <- renderUI({
     HTML("<h2>Compare Two Artists on the Graph</h2><br>")
-  })
-
-  output$text9 <- renderUI({
-    HTML("<br><br>")
   })
 
   output$compare_bands <- renderPlot({
@@ -93,7 +85,7 @@ server <- function(input, output) {
   })
 
   # Sixth tab - Vinyl
-  output$text6 <- renderUI({
+  output$textVinyl <- renderUI({
     HTML("<h2>Top-Rated Albums Not Owned on Vinyl</h2><br>")
   })
 
