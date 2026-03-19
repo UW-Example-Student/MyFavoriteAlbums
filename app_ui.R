@@ -57,7 +57,7 @@ ui <- fluidPage(
                  selectInput("band_name_1", "First band or artist:", all_bands),
                  selectInput("band_name_2", "Second band or artist:", all_bands),
                  htmlOutput("textBreak"),
-                 plotOutput("compare_bands")),
+                 plotlyOutput("compare_bands")),
         tabPanel("Vinyl",
                  htmlOutput("textVinyl"),
                  selectInput("vinyl_rating", "Select which albums to display:",

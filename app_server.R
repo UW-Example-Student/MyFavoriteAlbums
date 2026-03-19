@@ -80,7 +80,7 @@ server <- function(input, output) {
     HTML("<h2>Compare Two Artists on the Graph</h2><br>")
   })
 
-  output$compare_bands <- renderPlot({
+  output$compare_bands <- renderPlotly({
     return(band_album_comparison_chart(input$band_name_1, input$band_name_2))
   })
 
