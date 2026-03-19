@@ -15,6 +15,9 @@ all_bands <- sort(unique(album_data$Artist))
 # Used to populate the pull-down menu
 all_years <- sort(unique(album_data$Year))
 
+earliest_year <-min(all_years)
+most_recent_year <-max(all_years)
+
 ui <- fluidPage(
     mainPanel(htmlOutput("title"),
       tabsetPanel(
@@ -26,7 +29,7 @@ ui <- fluidPage(
                  textOutput("popular_artist")),
         tabPanel("Number One Albums",
                  htmlOutput("text3"),
-                 sliderInput("rng", "Choose the Years", value = c(1993, 1998), min = 1993, max = 2024, sep = ""),
+                 sliderInput("rng", "Choose the Years", value = c(earliest_year, most_recent_year), min = earliest_year, max = most_recent_year, sep = "", step=1),
                  tableOutput("number_one_table")),
         tabPanel("Top Albums by Year",
                  htmlOutput("text4"),
