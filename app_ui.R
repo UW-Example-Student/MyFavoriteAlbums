@@ -15,8 +15,14 @@ all_bands <- sort(unique(album_data$Artist))
 # Used to populate the pull-down menu
 all_years <- sort(unique(album_data$Year))
 
+# Get earliest and latest year in dataset for slider and chart
 earliest_year <-min(all_years)
 most_recent_year <-max(all_years)
+
+# Get two artists with most albums in the dataset to pre-populate chart
+#popular_artist[2] has the most albums. popular_artist[1] is second
+popular_artist <- tail(names(sort(table(album_data$Artist))), 2)
+
 
 ui <- fluidPage(
     mainPanel(htmlOutput("title"),
@@ -54,8 +60,8 @@ ui <- fluidPage(
                  tableOutput("fav_artists_table")),
         tabPanel("Artist Comparison",
                  htmlOutput("textCompare"),
-                 selectInput("band_name_1", "First band or artist:", all_bands),
-                 selectInput("band_name_2", "Second band or artist:", all_bands),
+                 selectInput("band_name_1", "First band or artist:", all_bands, selected = popular_artist[2]),
+                 selectInput("band_name_2", "Second band or artist:", all_bands, selected = popular_artist[1]),
                  htmlOutput("textBreak"),
                  plotlyOutput("compare_bands")),
         tabPanel("Vinyl",
