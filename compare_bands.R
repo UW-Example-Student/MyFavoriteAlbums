@@ -12,7 +12,7 @@ band_album_comparison_chart <- function(var.artist1, var.artist2){
     ylab("Rating")+
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
     labs(title = "Album Ratings")+
-    scale_x_continuous(breaks=seq(earliest_year,most_recent_year,1))+
+    scale_x_continuous(breaks=seq(earliest_year,most_recent_year,5))+
     scale_y_continuous(breaks=seq(0,10,1))+
     expand_limits(x=c(earliest_year,most_recent_year), y=c(0,10))
 
