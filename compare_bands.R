@@ -17,6 +17,6 @@ band_album_comparison_chart <- function(var.artist1, var.artist2){
     expand_limits(x=c(earliest_year,most_recent_year), y=c(0,10)) +
 #    theme(legend.position='bottom')
     theme(legend.position = c(0.1, 0.1))
-  ggplotly(p1)
+  ggplotly(p1)  %>% config(displayModeBar = FALSE)
 }
 
