@@ -19,9 +19,9 @@ all_years <- sort(unique(album_data$Year))
 earliest_year <-min(all_years)
 most_recent_year <-max(all_years)
 
-# Get two random artists to pre-populate chart
-#random_artist$Artist[1] and random_artist$Artist[1]
-random_artist <- sample_n(album_data, 2)
+# Get two artists with most albums in the dataset to pre-populate chart
+#popular_artist[2] has the most albums. popular_artist[1] is second
+popular_artist <- tail(names(sort(table(album_data$Artist))), 2)
 
 
 ui <- fluidPage(
