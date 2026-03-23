@@ -1,4 +1,4 @@
-server <- function(input, output) {
+server <- function(input, output, session) {
 
   output$title <- renderUI({
     HTML("<h1>My Favorite Albums</h1><br>")
@@ -79,7 +79,29 @@ server <- function(input, output) {
   output$textCompare <- renderUI({
     HTML("<h2>Compare Two Artists on the Graph</h2><br>")
   })
-
+  
+  random_selection_1 <- sample(all_bands, 1)
+  
+  # Update the dropdown menu with the random value when the session starts
+  # This runs only once per session/app load
+  updateSelectInput(session, "band_name_1", selected = random_selection_1)
+  
+  # Display the selected value
+  output$selected_value <- renderText({
+    input$band_name_1
+  })
+  
+  random_selection_2 <- sample(all_bands, 1)
+  
+  # Update the dropdown menu with the random value when the session starts
+  # This runs only once per session/app load
+  updateSelectInput(session, "band_name_2", selected = random_selection_2)
+  
+  # Display the selected value
+  output$selected_value <- renderText({
+    input$band_name_2
+  })
+  
   output$compare_bands <- renderPlotly({
     return(band_album_comparison_chart(input$band_name_1, input$band_name_2))
   })
